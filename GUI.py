@@ -11,10 +11,10 @@ from oct2py import Oct2Py
 import matplotlib.pyplot as plt
 
 
-#st.title('Data Explorer')
-#st.sidebar.subheader('Upload a file')
+st.title('Data Visualizer')
+st.sidebar.subheader('Upload a file')
 
-#uploaded_file = st.sidebar.file_uploader("Upload a file")
+uploaded_file = st.sidebar.file_uploader("Upload a file")
 
 #if uploaded_file is not None:  
 #	print("inside") 
