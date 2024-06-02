@@ -11,18 +11,18 @@ from oct2py import Oct2Py
 import matplotlib.pyplot as plt
 
 
-st.title('Data Explorer')
-st.sidebar.subheader('Upload a file')
+#st.title('Data Explorer')
+#st.sidebar.subheader('Upload a file')
 
-uploaded_file = st.sidebar.file_uploader("Upload a file")
+#uploaded_file = st.sidebar.file_uploader("Upload a file")
 
-if uploaded_file is not None:  
-	pass 
+#if uploaded_file is not None:  
+#	print("inside") 
 
 	#help(lzo)
 	#uncompress file 
 
-
+'''
 	#tar = tarfile.open("prac.tar")
 	tar = tarfile.open(uploaded_file)
 	currentpath = os.path.abspath(os.getcwd())
@@ -36,7 +36,7 @@ if uploaded_file is not None:
 		tar.close()
 		print("decompressed")
 
-
+'''
 '''
 	#filter out .lzo file 
 	onlylzo = [f for f in listdir(path) if f.endswith('.lzo')]
