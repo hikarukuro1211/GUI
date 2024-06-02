@@ -4,7 +4,6 @@ import pandas as pd
 import tarfile
 import os 
 from os import listdir 
-from lzo_master import lzo 
 
 from oct2py import Oct2Py
 
