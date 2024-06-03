@@ -22,7 +22,8 @@ if uploaded_file is not None:
 	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
 		for entry in tf:
 			extract = tf.extractfile(entry)
-			st.write(extract.read())
+			st.write(entry.name)
+			
 
 	#st.write("File content as bytes:", bytes_data)
 
