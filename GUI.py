@@ -25,7 +25,7 @@ if uploaded_file is not None:
 		for entry in tf:
 			if entry.name.endswith('.lzo'):
 				extract = tf.extractfile(entry)
-				with tempfile.NamedTemporaryFile(delete=True, suffix='.lzo') as temp_lzo:
+				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_path = temp_lzo.name
 					temp_dir = os.path.dirname(temp_lzo_path)
