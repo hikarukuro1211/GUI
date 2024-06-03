@@ -45,9 +45,9 @@ if uploaded_file is not None:
 			
 				#os.chdir(temp_dir)
 
-				st.write(extract.name)
-				st.write(temp_lzo_path)
-				st.write(temp_dir)
+				#st.write(extract.name)
+				#st.write(temp_lzo_path)
+				#st.write(temp_dir)
 				st.write(head_tail[1])
 
 				#command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
@@ -56,8 +56,8 @@ if uploaded_file is not None:
 				os.system('ls')
 
 				os.remove(tail)
-				os.remove(decompressed_path)
-				
+				#os.remove(decompressed_path)
+
 				os.system('ls')
 
 
