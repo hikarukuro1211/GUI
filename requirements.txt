@@ -1,6 +1,4 @@
 streamlit
-pandas
-tarfile 
-os 
-oxt2py
+pandas 
+oct2py
 matplotlib.pyplot
