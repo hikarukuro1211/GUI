@@ -34,6 +34,7 @@ if uploaded_file is not None:
 					st.write(temp_lzo_path)
 				# Save the current working directory
 				original_dir = os.getcwd()
+				st.write(original_dir)
 
 				head_tail = os.path.split(temp_lzo_path)
 				tail = head_tail[1]
