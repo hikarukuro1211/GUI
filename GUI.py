@@ -20,18 +20,17 @@ if uploaded_file is not None:
 	#tar = tarfile.open("prac.tar")
 	bytes_data = uploaded_file.getvalue()
 	tar = tarfile.open(fileobj = BytesIO(bytes_data))
-	print("decompressed")
+	tar.extractall(bytes_data)
+	tar.close()		
 
 	#st.write("File content as bytes:", bytes_data)
-
-
-'''
 
 	currentpath = os.path.abspath(os.getcwd())
 	
 	directory = 'files'
 	path = os.path.join(currentpath, directory)
 
+'''
 	#sort file into a new file, 'files'
 	if not os.path.exists(path):
 		os.makedirs(path)
