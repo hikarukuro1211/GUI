@@ -17,8 +17,13 @@ uploaded_file = st.sidebar.file_uploader("Upload a file")
 
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
-	tar = tarfile.open(uploaded_file.name)
+	tar = tarfile.open(uploaded_file.getvalue())
+	print("decompressed")
+
+'''
+
 	currentpath = os.path.abspath(os.getcwd())
+	
 	directory = 'files'
 	path = os.path.join(currentpath, directory)
 
@@ -27,9 +32,7 @@ if uploaded_file is not None:
 		os.makedirs(path)
 		tar.extractall(path)
 		tar.close()
-		print("decompressed")
 
-'''
 	#filter out .lzo file 
 	onlylzo = [f for f in listdir(path) if f.endswith('.lzo')]
 
