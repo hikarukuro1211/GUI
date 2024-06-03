@@ -50,7 +50,7 @@ if uploaded_file is not None:
 				st.write(temp_dir)
 				st.write(head_tail[1])
 
-				command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
+				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
 				os.system(command_str)							
 
 				os.system('ls')
