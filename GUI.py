@@ -35,13 +35,13 @@ if uploaded_file is not None:
 				original_dir = os.getcwd()
 
 				head_tail = os.path.split(temp_lzo_path)
+				tail = head_tail[1]
 
 				os.chdir(temp_dir)
-				os.system('ls')
+				#os.system('ls')
 
-				#decompressed_path = temp_lzo_path.replace('.lzo', '')
-				#command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
-				#os.system(command_str)
+				decompressed_path = tail.replace('.lzo', '')
+			
 
 				#os.chdir(temp_dir)
 
@@ -50,8 +50,10 @@ if uploaded_file is not None:
 				st.write(temp_dir)
 				st.write(head_tail[1])
 
+				command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
+				os.system(command_str)							
 
-
+				os.system('ls')
 
 
 				#with open(decompressed_path, 'rb') as decompressed_file:
