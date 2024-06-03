@@ -6,7 +6,7 @@ import os
 from os import listdir 
 import tempfile 
 import subprocess 
-
+import urllib
 #from oct2py import Oct2Py
 
 import matplotlib.pyplot as plt
@@ -68,8 +68,9 @@ if uploaded_file is not None:
 	#rf_image_content_web =  requests.get(rf_image_url).text
 
 
-	for line in requests.get(rf_image_url).text:
-		st.write(line)
+		
+	for line in urllib.request.urlopen(rf_image_url):
+		print(line.decode('utf-8')) #utf-8 or iso8859-1 or whatever the page encoding scheme is
 
 '''
 	with open(rf_image_content_web, 'w') as file:
