@@ -7,7 +7,7 @@ from os import listdir
 
 #from oct2py import Oct2Py
 
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 st.title('Data Visualizer')
@@ -15,13 +15,7 @@ st.sidebar.subheader('Upload a file')
 
 uploaded_file = st.sidebar.file_uploader("Upload a file")
 
-#if uploaded_file is not None:  
-#	print("inside") 
-
-	#help(lzo)
-	#uncompress file 
-
-'''
+if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
 	tar = tarfile.open(uploaded_file)
 	currentpath = os.path.abspath(os.getcwd())
@@ -35,7 +29,6 @@ uploaded_file = st.sidebar.file_uploader("Upload a file")
 		tar.close()
 		print("decompressed")
 
-'''
 '''
 	#filter out .lzo file 
 	onlylzo = [f for f in listdir(path) if f.endswith('.lzo')]
