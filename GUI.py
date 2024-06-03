@@ -12,6 +12,11 @@ import subprocess
 import matplotlib.pyplot as plt
 from io import BytesIO
 
+import requests
+
+
+rf_image_url = 'https://github.com/hikarukuro1211/GUI/blob/main/rf_image.txt'
+
 
 st.title('Data Visualizer')
 st.sidebar.subheader('Upload a file')
@@ -59,6 +64,22 @@ if uploaded_file is not None:
 
 
 	#create .m files for each matlab function text 
+	rf_image_content_web =  requests.get(rf_image_url).text
+
+	with open(rf_image_content_web, 'r') as file:
+		rf_image_content = ''
+		line = file.readline()
+		
+		while line:
+			rf_image_content += line
+			line = file.readline()
+
+	with open("rf_image.m","w+") as f:
+		f.write(rf_image_content)
+
+	script = 'rdataread.txt'
+
+
 '''
 	script = 'rf_image.txt'
 
