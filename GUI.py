@@ -67,7 +67,7 @@ if uploaded_file is not None:
 
 	#create .m files for each matlab function text 
 	rf_image_content_web =  requests.get(rf_image_url, stream = True).text
-	raw_text = rf_image_content_web["rawLines"]
+	#raw_text = rf_image_content_web["rawLines"]
 
 	#soup = BeautifulSoup(rf_image_content_web, 'html.parser')
 
