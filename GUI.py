@@ -34,7 +34,7 @@ if uploaded_file is not None:
 					command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
 					os.system(command_str)
 
-					os.system('cd' + temp_lzo_path)
+					os.system('cd ' + temp_lzo_path)
 					st.write(os.system('ls'))
 
 
