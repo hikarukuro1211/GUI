@@ -4,6 +4,8 @@ import pandas as pd
 import tarfile
 import os 
 from os import listdir 
+import tempfile 
+import subprocess 
 
 #from oct2py import Oct2Py
 
@@ -21,9 +23,16 @@ if uploaded_file is not None:
 	bytes_data = uploaded_file.getvalue()
 	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
 		for entry in tf:
-			extract = tf.extractfile(entry)
-			st.write(entry.name)
-			
+			if entry.name.endswith('.lzo'):
+				extract = tf.extractfile(entry)
+				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
+					temp_lzo.write(extract.read())
+					temp_lzo_path = temp_lzo.name
+
+				decompressed_path = temp_lzo_path.replace('.lzo', '')
+				subprocess.run(['lzop', '-d', temp_lzo_path, '-o', decompressed_path])
+				st.write('decompressed')
+		
 
 	#st.write("File content as bytes:", bytes_data)
 
