@@ -28,7 +28,7 @@ if uploaded_file is not None:
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_path = temp_lzo.name
-					st.write('decompressed')
+					st.write(temp_lzo_path)
 
 
 				#decompressed_path = temp_lzo_path.replace('.lzo', '')
