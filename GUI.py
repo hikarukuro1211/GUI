@@ -31,7 +31,8 @@ if uploaded_file is not None:
 					st.write(temp_lzo_path)
 
 					decompressed_path = temp_lzo_path.replace('.lzo', '')
-					subprocess.run(['lzop', '-d', temp_lzo_path, '-o', decompressed_path])
+					command = 'lzop -d'+ str(temp_lzo_path) + '-o' + str(decompressed_path)
+					subprocess.run([command])
 					#st.write('decompressed')
 			
 
