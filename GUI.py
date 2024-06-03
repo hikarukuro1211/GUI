@@ -57,6 +57,7 @@ if uploaded_file is not None:
 	os.system('ls')
 
 	#create .m files for each matlab function text 
+	'''
 	script = 'rf_image.txt'
 
 	with open(script, 'r') as file:
@@ -109,7 +110,7 @@ if uploaded_file is not None:
 	with open("hilbert.m","w+") as f:
 		f.write(hilbert_content)
 
-
+'''
 	
 
 
