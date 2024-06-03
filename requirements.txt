@@ -1,0 +1,6 @@
+streamlit
+pandas
+tarfile 
+os 
+oxt2py
+matplotlib.pyplot
