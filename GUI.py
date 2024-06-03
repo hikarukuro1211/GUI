@@ -30,11 +30,11 @@ if uploaded_file is not None:
 					temp_lzo_path = temp_lzo.name
 					st.write(temp_lzo_path)
 
-					decompressed_path = temp_lzo_path.replace('.lzo', '')
-					command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
-					with open(decompressed_path, 'rb') as decompressed_file:
-						decompressed_content = decompressed_file.read()
-						st.write(f"Decompressed file: {decompressed_path}")
+				decompressed_path = temp_lzo_path.replace('.lzo', '')
+				command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
+				with open(decompressed_path, 'rb') as decompressed_file:
+					decompressed_content = decompressed_file.read()
+					st.write(f"Decompressed file: {decompressed_path}")
 
 
 					#st.write('decompressed')
