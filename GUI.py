@@ -66,14 +66,14 @@ if uploaded_file is not None:
 
 
 	#create .m files for each matlab function text 
-	rf_image_content_web =  requests.get(rf_image_url).text
+	rf_image_content_web =  requests.get(rf_image_url).content
 
 	soup = BeautifulSoup(rf_image_content_web, 'html.parser')
 
 	# Find and extract text content
 	text = soup.get_text(separator='\n', strip=True)
 
-
+	st.write(text)
 	#for line in urllib.request.urlopen(rf_image_url):
 	#	print(line.decode('utf-8')) #utf-8 or iso8859-1 or whatever the page encoding scheme is
 
