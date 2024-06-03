@@ -19,10 +19,10 @@ uploaded_file = st.sidebar.file_uploader("Upload a file", type = "tar")
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
 	bytes_data = uploaded_file.getvalue()
-	tar = tarfile.open(fileobj = BytesIO(bytes_data))
-	y = tar.extractall()
-	tar.close()		
-	st.write(y)
+	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
+		for entry in tf:
+			extract = tf.extractfile(entry)
+			st.write(extract.read())
 
 	#st.write("File content as bytes:", bytes_data)
 
