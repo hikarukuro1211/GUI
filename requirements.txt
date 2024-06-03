@@ -5,3 +5,4 @@ matplotlib
 Python-IO
 temp 
 requests
+beautifulsoup4
