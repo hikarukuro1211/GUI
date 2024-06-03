@@ -14,7 +14,7 @@ from io import BytesIO
 st.title('Data Visualizer')
 st.sidebar.subheader('Upload a file')
 
-uploaded_file = st.sidebar.file_uploader("Upload a file", type = "tgz")
+uploaded_file = st.sidebar.file_uploader("Upload a file", type = "tar")
 
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
