@@ -8,6 +8,7 @@ from os import listdir
 #from oct2py import Oct2Py
 
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 
 st.title('Data Visualizer')
