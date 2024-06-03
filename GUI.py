@@ -33,14 +33,19 @@ if uploaded_file is not None:
 					st.write(temp_lzo_path)
 				# Save the current working directory
 				original_dir = os.getcwd()
-
-				decompressed_path = temp_lzo_path.replace('.lzo', '')
-				command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
-				os.system(command_str)
-
 				os.chdir(temp_dir)
-
 				os.system('ls')
+
+				#decompressed_path = temp_lzo_path.replace('.lzo', '')
+				#command_str = 'lzop -d '+ str(temp_lzo_path) + ' -o ' + str(decompressed_path)
+				#os.system(command_str)
+
+				#os.chdir(temp_dir)
+
+				st.write(extract.name)
+				st.write(temp_lzo_path)
+
+
 
 
 				#with open(decompressed_path, 'rb') as decompressed_file:
