@@ -1,4 +1,4 @@
 streamlit
 pandas 
 oct2py
-matplotlib.pyplot
+matplotlib
