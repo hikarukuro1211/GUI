@@ -23,7 +23,8 @@ if uploaded_file is not None:
 	bytes_data = uploaded_file.getvalue()
 	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
 		for entry in tf:
-			if entry.name.endswith('.lzo'):
+			if entry.name.endswith('.lzo') and "rf" in entry.name:
+				st.write(entry.name)
 				extract = tf.extractfile(entry)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
@@ -42,7 +43,6 @@ if uploaded_file is not None:
 
 				decompressed_path = tail.replace('.lzo', '')
 			
-
 				#os.chdir(temp_dir)
 
 				st.write(extract.name)
@@ -50,9 +50,14 @@ if uploaded_file is not None:
 				st.write(temp_dir)
 				st.write(head_tail[1])
 
-				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
-				os.system(command_str)							
+				#command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
+				#os.system(command_str)							
 
+				os.system('ls')
+
+				os.remove(tail)
+				os.remove(decompressed_path)
+				
 				os.system('ls')
 
 
