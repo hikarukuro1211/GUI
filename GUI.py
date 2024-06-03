@@ -15,7 +15,7 @@ from io import BytesIO
 import requests
 from bs4 import BeautifulSoup
 #import urllib2  # the lib that handles the url stuff
-
+import base64
 
 rf_image_url = 'https://github.com/hikarukuro1211/GUI/blob/main/rf_image.txt'
 
@@ -66,14 +66,16 @@ if uploaded_file is not None:
 
 
 	#create .m files for each matlab function text 
-	rf_image_content_web =  requests.get(rf_image_url).content
+	rf_image_content_web =  requests.get(rf_image_url)
 
-	soup = BeautifulSoup(rf_image_content_web, 'html.parser')
+	#soup = BeautifulSoup(rf_image_content_web, 'html.parser')
 
 	# Find and extract text content
-	text = soup.get_text(separator='\n', strip=True)
+	#text = soup.get_text(separator='\n', strip=True)
+	content = rf_image_content_web.json().get("content", "")
+	decoded_content = base64.b64decode(content).decode("utf-8")
 
-	st.write(text)
+	st.write(decoded_content)
 	#for line in urllib.request.urlopen(rf_image_url):
 	#	print(line.decode('utf-8')) #utf-8 or iso8859-1 or whatever the page encoding scheme is
 
