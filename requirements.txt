@@ -2,3 +2,4 @@ streamlit
 pandas 
 oct2py
 matplotlib
+io
