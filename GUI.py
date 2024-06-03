@@ -67,7 +67,7 @@ if uploaded_file is not None:
 	rf_image_content_web =  requests.get(rf_image_url).text
 	st.write(rf_image_content_web)
 
-	with open(rf_image_content_web, 'r') as file:
+	with open(rf_image_content_web, 'w') as file:
 		rf_image_content = ''
 		line = file.readline()
 		
