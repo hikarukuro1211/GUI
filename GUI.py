@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 import requests
-import urllib2  # the lib that handles the url stuff
+#import urllib2  # the lib that handles the url stuff
 
 
 rf_image_url = 'https://github.com/hikarukuro1211/GUI/blob/main/rf_image.txt'
@@ -68,7 +68,7 @@ if uploaded_file is not None:
 	#rf_image_content_web =  requests.get(rf_image_url).text
 
 
-	for line in urllib2.urlopen(rf_image_url):
+	for line in requests.get(rf_image_url):
 		st.write(line)
 
 '''
