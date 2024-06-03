@@ -17,7 +17,7 @@ uploaded_file = st.sidebar.file_uploader("Upload a file")
 
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
-	tar = tarfile.open(uploaded_file)
+	tar = tarfile.open(uploaded_file.name)
 	currentpath = os.path.abspath(os.getcwd())
 	directory = 'files'
 	path = os.path.join(currentpath, directory)
