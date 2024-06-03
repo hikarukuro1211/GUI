@@ -55,6 +55,8 @@ if uploaded_file is not None:
 
 	os.chdir(original_dir)
 	os.system('ls')
+	os.system('pwd')
+
 
 	#create .m files for each matlab function text 
 '''
