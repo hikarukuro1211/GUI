@@ -18,8 +18,11 @@ uploaded_file = st.sidebar.file_uploader("Upload a file")
 
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
-	tar = tarfile.open(BytesIO(uploaded_file.getvalue()))
+	#tar = tarfile.open(BytesIO(uploaded_file.getvalue()))
 	print("decompressed")
+	bytes_data = uploaded_file.getvalue()
+	st.write("File content as bytes:", bytes_data)
+
 
 '''
 
