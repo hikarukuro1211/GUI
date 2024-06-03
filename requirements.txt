@@ -6,3 +6,4 @@ Python-IO
 temp 
 requests
 beautifulsoup4
+base64
