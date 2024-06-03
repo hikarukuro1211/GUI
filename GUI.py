@@ -68,7 +68,7 @@ if uploaded_file is not None:
 	#rf_image_content_web =  requests.get(rf_image_url).text
 
 
-	for line in requests.get(rf_image_url):
+	for line in requests.get(rf_image_url).text:
 		st.write(line)
 
 '''
