@@ -39,41 +39,77 @@ if uploaded_file is not None:
 				tail = head_tail[1]
 
 				os.chdir(temp_dir)
-				#os.system('ls')
-
-				files = os.listdir(temp_dir)
-				for file in files:
-					file_path = os.path.join(temp_dir, file)
-					if os.path.isfile(file_path) and '.log' not in file_path:
-						os.remove(file_path)
-
 				decompressed_path = tail.replace('.lzo', '')
-			
-				#os.chdir(temp_dir)
 
-				#st.write(extract.name)
-				#st.write(temp_lzo_path)
-				#st.write(temp_dir)
-				st.write(head_tail[1])
 
-				#command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
-				#os.system(command_str)							
+				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
+				os.system(command_str)							
 
 				os.system('ls')
 
 				os.remove(tail)
-				#os.remove(decompressed_path)
+				os.remove(decompressed_path)
 
 				os.system('ls')
 
 
-				#with open(decompressed_path, 'rb') as decompressed_file:
-				#	decompressed_content = decompressed_file.read()
-				#	st.write(f"Decompressed file: {decompressed_path}")
+	#create .m files for each matlab function text 
+	script = 'rf_image.txt'
+
+	with open(script, 'r') as file:
+		rf_image_content = ''
+		line = file.readline()
+		
+		while line:
+			rf_image_content += line
+			line = file.readline()
+
+	with open("rf_image.m","w+") as f:
+		f.write(rf_image_content)
+
+	script = 'rdataread.txt'
+
+	with open(script, 'r') as file:
+		rdataread_content = ''
+		line = file.readline()
+		
+		while line:
+			rdataread_content += line
+			line = file.readline()
+
+	with open("rdataread.m","w+") as f:
+		f.write(rdataread_content)
+
+	script = 'ReadClariusYML.txt'
+
+	with open(script, 'r') as file:
+		ReadClariusYML_content = ''
+		line = file.readline()
+		
+		while line:
+			ReadClariusYML_content += line
+			line = file.readline()
+
+	with open("ReadClariusYML.m","w+") as f:
+		f.write(ReadClariusYML_content)
+
+	script = 'hilbert.txt'
+
+	with open(script, 'r') as file:
+		hilbert_content = ''
+		line = file.readline()
+		
+		while line:
+			hilbert_content += line
+			line = file.readline()
+
+	with open("hilbert.m","w+") as f:
+		f.write(hilbert_content)
 
 
-					#st.write('decompressed')
-			
+	
+
+
 
 	#st.write("File content as bytes:", bytes_data)
 
@@ -167,4 +203,12 @@ if uploaded_file is not None:
 
 	plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
 	plt.show()
+'''
+'''
+				files = os.listdir(temp_dir)
+				for file in files:
+					file_path = os.path.join(temp_dir, file)
+					if os.path.isfile(file_path) and '.log' not in file_path:
+						os.remove(file_path)
+
 '''
