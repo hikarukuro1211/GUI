@@ -44,7 +44,7 @@ if uploaded_file is not None:
 				files = os.listdir(temp_dir)
 				for file in files:
 					file_path = os.path.join(temp_dir, file)
-					if os.path.isfile(file_path):
+					if os.path.isfile(file_path) and '.log' not in file_path:
 						os.remove(file_path)
 
 				decompressed_path = tail.replace('.lzo', '')
