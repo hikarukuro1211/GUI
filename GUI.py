@@ -44,6 +44,8 @@ if uploaded_file is not None:
 
 				st.write(extract.name)
 				st.write(temp_lzo_path)
+				st.write(temp_dir)
+
 
 
 
