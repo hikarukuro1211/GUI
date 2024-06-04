@@ -67,6 +67,10 @@ if uploaded_file is not None:
 
 				os.system('ls')
 
+
+		os.chdir(temp_dir)
+
+
 	#create .m files for each matlab function text 
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
 	#rf_image_content = ''
