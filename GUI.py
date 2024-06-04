@@ -37,7 +37,7 @@ if uploaded_file is not None:
 		for entry in tf:
 			extract = tf.extractfile(entry)
 			if entry.name.endswith('.lzo'):
-				st.write(entry.name)
+				#st.write(entry.name)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_path = temp_lzo.name
@@ -51,11 +51,11 @@ if uploaded_file is not None:
 
 					st.write(temp_lzo_path)
 				# Save the current working directory
-				st.write(original_dir)
+				#st.write(original_dir)
 
 				head_tail = os.path.split(temp_lzo_path)
 				tail = head_tail[1]
-				st.write(temp_dir)
+				#st.write(temp_dir)
 				os.chdir(temp_dir)
 				decompressed_path = tail.replace('.lzo', '')
 
@@ -64,7 +64,6 @@ if uploaded_file is not None:
 				os.system(command_str)							
 				os.system('ls')
 			if entry.name.endswith('env.yml'):
-				st.write(entry.name)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_name_env = temp_lzo.name
@@ -96,8 +95,10 @@ if uploaded_file is not None:
 			
 		oc = Oct2Py()
 		cur_dir = temp_dir
-		file_mame = decompressed_path
-		st.write(file_mame)
+		file_name = decompressed_path
+		st.write(temp_lzo_name_rf)
+		st.write(temp_lzo_name_env)
+
 		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
 		#st.write(x,y,z)
 
