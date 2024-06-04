@@ -9,7 +9,10 @@ function [x,y,BB] = rf_image(filename)
     disp("Inside")
 
     fname = fullfile(filename);
-    fid = fopen(filename, 'r');
+    disp(fname)
+
+    fid = fopen(fname, 'r');
+
     hinfo = fread(fid, 5, 'int32');
     numFrames = hinfo(2);
     
