@@ -18,6 +18,9 @@ from bs4 import BeautifulSoup
 import base64
 import json 
 
+import plotly.express as px
+
+
 #defining .txt file locations 
 rf_image_url = 'https://raw.githubusercontent.com/hikarukuro1211/GUI/main/rf_image.txt'
 rdataread_url = 'https://raw.githubusercontent.com/hikarukuro1211/GUI/main/rdataread.txt'
@@ -107,9 +110,7 @@ if uploaded_file is not None:
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-		fig, ax = plt.subplots()
-
-		ax.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = px.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
-		st.image(fig)
+		st.plotly_chart(fig)
 		os.chdir(temp_dir)
