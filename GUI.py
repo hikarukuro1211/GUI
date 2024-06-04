@@ -132,7 +132,9 @@ if uploaded_file is not None:
 		st.write(y_max)
 		st.write(y_val)
 
-		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70, x = x_val, y = y_val)
+		label_dict = {'x': 'width (cm)', 'y': 'depth (cm)'}
+
+		fig = px.imshow(z, labels = label_dict, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70, x = x_val, y = y_val)
 		fig.update_layout(coloraxis_showscale=False)
 		#fig.update_xaxes(range=[x_min, x_max])
 		#fig.update_yaxes(range=[y_min, y_max])
