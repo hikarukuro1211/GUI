@@ -8,8 +8,11 @@ function [x,y,BB] = rf_image(filename)
     % Open folder
     disp("Inside")
 
-    %fname = fullfile(pathname,filename);
-    fid = fopen(filename, 'r');
+    fname = fullfile(filename);
+    disp(fname)
+
+    fid = fopen(fname, 'r');
+
     hinfo = fread(fid, 5, 'int32');
     numFrames = hinfo(2);
     
