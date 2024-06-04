@@ -6,8 +6,8 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
     printf("Inside")
 
     % Open folder
-    fname_rf = fullfile(rf_filename)
-    fname_env = fullfile(env_filename)
+    fname_rf = fullfile(rf_filename);
+    fname_env = fullfile(env_filename);
 
 
     fid = fopen(fname_rf, 'r');
@@ -46,14 +46,14 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
         y = linspace(delay, depth + delay, 10);
         x = linspace(0, width, 10);
     
-        imagesc(x, y, BB, [15 70]); title('RF Image');%titlename;
-        ylabel('Depth [cm]'); xlabel('Width [cm]');
+        %imagesc(x, y, BB, [15 70]); title('RF Image');%titlename;
+        %ylabel('Depth [cm]'); xlabel('Width [cm]');
     
         % Adjust size
-        fig = gcf;  
+        %fig = gcf;  
         %fig.Position(3) = 600; 
         %fig.Position(4) = 600; 
-        drawnow;
+        %drawnow;
 
     
     end
