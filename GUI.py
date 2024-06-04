@@ -100,7 +100,7 @@ if uploaded_file is not None:
 		temp_lzo_name_rf = temp_lzo_name_rf.replace('.lzo', '')
 		#temp_lzo_name_env = temp_lzo_name_env.replace('.yml', '')
 
-		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
+		x_val,y_val,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
 
 		#for filename in os.listdir(os.path.dirname(temp_lzo_path)):
 		#	if filename.is_file():
@@ -112,7 +112,7 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		fig = px.imshow(z,x = x, y = y, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)#, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = px.imshow(z,x = x_val, y = y_val, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)#, extent=[15, 70, 15, 70], cmap = 'gray')
 		fig.update_layout(coloraxis_showscale=False)
 
 		#plt.show()
