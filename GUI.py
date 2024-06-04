@@ -46,7 +46,7 @@ if uploaded_file is not None:
 
 				head_tail = os.path.split(temp_lzo_path)
 				tail = head_tail[1]
-
+				st.write(temp_dir)
 				os.chdir(temp_dir)
 				decompressed_path = tail.replace('.lzo', '')
 
@@ -55,15 +55,17 @@ if uploaded_file is not None:
 				os.system(command_str)							
 				os.system('ls')
 
+
+
 				os.remove(tail)
 				os.remove(decompressed_path)
 
+				rf_image_content_web = requests.get(rf_image_url, stream = True).text
 
 				os.system('ls')
 
 	#create .m files for each matlab function text 
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
-	rf_image_content_web = requests.get(rf_image_url, stream = True).text
 	#rf_image_content = ''
 	#for line in rf_image_content_web:
 	#	rf_image_content += line
