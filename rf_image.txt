@@ -7,8 +7,9 @@ function [x,y,BB] = rf_image(filename)
 
     % Open folder
     disp("Inside")
+    disp(filename)
 
-    fname = fullfile(filename);
+    fname = fullfile(filename)
     disp(fname)
 
     fid = fopen(fname, 'r');
