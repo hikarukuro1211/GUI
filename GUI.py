@@ -69,17 +69,12 @@ if uploaded_file is not None:
 	#create .m files for each matlab function text 
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
 	rf_image_content_web = requests.get(rf_image_url, stream = True).text
-
-	with open(rf_image_content_web, 'w') as file:
-		rf_image_content = ''
-		line = file.readline()
-		
-		while line:
-			rf_image_content += line
-			line = file.readline()
+	#rf_image_content = ''
+	#for line in rf_image_content_web:
+	#	rf_image_content += line
 
 	with open("rf_image.m","w+") as f:
-		f.write(rf_image_content)
+		f.write(rf_image_content_web)
 
 
 
