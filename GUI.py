@@ -113,7 +113,8 @@ if uploaded_file is not None:
 		#fig.layout.height = 500
 		#fig.layout.width = 500
 		st.write(type(x))
-		st.write(x.max)
+		s = x.max()
+		st.write(s)
 
 
 		x_min = min(list(x))
