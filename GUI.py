@@ -112,16 +112,16 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		x_min = x[0]
+		x_min = min(x)
 		st.write(x_min)
-		x_max = x[len(x)-1]
+		x_max = max(x)
 		
 		st.write(x_max)
 
-		y_min = y[0]
+		y_min = min(y)
 		st.write(y_min)
 
-		y_max = y[len(y)-1]
+		y_max = max(y)
 		st.write(y_max)
 
 		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
