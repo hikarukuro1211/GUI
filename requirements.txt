@@ -7,3 +7,4 @@ temp
 requests
 beautifulsoup4
 pybase64
+plotly
