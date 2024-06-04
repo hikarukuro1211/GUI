@@ -113,9 +113,16 @@ if uploaded_file is not None:
 		#fig.layout.height = 500
 		#fig.layout.width = 500
 		x_min = x[0]
+		st.write(x_min)
 		x_max = x[len(x)-1]
+		
+		st.write(x_max)
+
 		y_min = y[0]
+		st.write(y_min)
+
 		y_max = y[len(y)-1]
+		st.write(y_max)
 
 		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
 		fig.update_layout(coloraxis_showscale=False)
