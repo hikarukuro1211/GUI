@@ -5,10 +5,54 @@
 function [x,y,BB] = rf_image(filename)
     printf("Inside")
 
-    ret = 2
+    % Open folder
+    disp("Inside")
 
-    x = 1
-    y = 1
-    BB = 1
+    %fname = fullfile(pathname,filename);
+    fid = fopen(filename, 'r');
+    hinfo = fread(fid, 5, 'int32');
+    numFrames = hinfo(2);
+    
+    [data, header] = rdataread(fname, numFrames);
+    [nframes, nsamples, nlines] = size(data);
+    
+    if (numFrames > header.frames)
+        numFrames = header.frames;
+    end
+    
+    % depth
+    parameters = ReadClariusYML(fname, header.lines);
+    delay = (153850/2)*(parameters.DelaySamples/(parameters.SamplingRate*1e6));
+    depth = (153850/2)*(nsamples/(parameters.SamplingRate*1e6));
+    
+    % width
+    arc_length = (parameters.ProbePitch/1e3)*nlines;
+    FOV = (arc_length * 360) / (2 * pi * 45);
+    width = 2 * (depth + delay) * tand(FOV/2);
+    
+    % display rf data image
+    figure; 
+    colormap(gray)
+    disp("inside2")
+    disp(numFrames)
+    for j = numFrames:numFrames % numFrames is the total number of frames but ROI is only available for frame 'numframes'; by iterating through data(j,:,:), other frames can be accessed 
+        RF = squeeze(data(j,:,:));
+        BB = 20.*log10(1 + abs(hilbert(RF)));
+        disp("inside3")
+        titlename = strrep(filename, '_', '\_');
+    
+        y = linspace(delay, depth + delay, 10);
+        x = linspace(0, width, 10);
+    
+        imagesc(x, y, BB, [15 70]); title('RF Image');%titlename;
+        ylabel('Depth [cm]'); xlabel('Width [cm]');
+    
+        % Adjust size
+        fig = gcf;  
+        %fig.Position(3) = 600; 
+        %fig.Position(4) = 600; 
+        drawnow;
 
+    
+    end
 end 
