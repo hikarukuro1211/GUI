@@ -46,7 +46,7 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
         RF = squeeze(data(j,:,:));
         BB = 20.*log10(1 + abs(hilbert(RF)));
         disp("inside3")
-        titlename = strrep(filename, '_', '\_');
+        titlename = strrep(rf_filename, '_', '\_');
     
         y = linspace(delay, depth + delay, 10);
         x = linspace(0, width, 10);
