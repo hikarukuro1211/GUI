@@ -113,7 +113,7 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		fig = px.imshow(z,width = 600, height = 600, aspect='equal', binary_string = True)#, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = px.imshow(z,color_continuous_scale='gray')#, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
 		st.plotly_chart(fig)
 		os.chdir(temp_dir)
