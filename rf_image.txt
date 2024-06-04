@@ -6,6 +6,9 @@ function [x,y,BB] = rf_image(filename)
     printf("Inside")
 
     ret = 2
-    
+
+    x = 1
+    y = 1
+    BB = 1
 
 end 
