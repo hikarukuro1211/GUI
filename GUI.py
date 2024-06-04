@@ -116,13 +116,13 @@ if uploaded_file is not None:
 		st.write(x_min)
 		x_max = max(x)
 		
-		st.write(x_max)
+		#st.write(x_max)
 
 		y_min = min(y)
-		st.write(y_min)
+		#st.write(y_min)
 
 		y_max = max(y)
-		st.write(y_max)
+		#st.write(y_max)
 
 		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
 		fig.update_layout(coloraxis_showscale=False)
