@@ -31,7 +31,7 @@ Last Modified: Feb 2023
 %ymlpath = strrep(filepath, 'raw', 'yml');
 %ymlpath = append(filepath(1),filepath(2),".yml");
 
-ymlpath = filepath + '.env'
+ymlpath = filepath
 disp(ymlpath)
 
 % open file and read contents into a cell array
