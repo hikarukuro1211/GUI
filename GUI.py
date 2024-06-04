@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 import base64
 import json 
 
-import plotly.express as px
+import plotly.graph_objects as go
 
 
 #defining .txt file locations 
@@ -110,7 +110,10 @@ if uploaded_file is not None:
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-		fig = px.imshow(z,width = 600, height = 600, aspect='equal')#, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = go.Figure(data=go.Heatmap(z))
+		fig.layout.height = 500
+		fig.layout.width = 500
+		#fig = px.imshow(z,width = 600, height = 600, aspect='equal')#, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
 		st.plotly_chart(fig)
 		os.chdir(temp_dir)
