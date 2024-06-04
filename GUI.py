@@ -107,9 +107,10 @@ if uploaded_file is not None:
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-		fig = plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig, ax = plt.subplots()
+
+		imshow = ax.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
-		st.pyplot(fig)
-
-
+		plt.close(fig)
+		st.image(fig)
 		os.chdir(temp_dir)
