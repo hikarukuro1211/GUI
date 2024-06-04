@@ -112,7 +112,7 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		x_min = min(x)
+		x_min = min(list(x))
 		st.write(x_min)
 		x_max = max(x)
 		
