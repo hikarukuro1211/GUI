@@ -76,6 +76,7 @@ if uploaded_file is not None:
 	with open("rf_image.m","w+") as f:
 		f.write(rf_image_content_web)
 
+	os.system('ls')
 
 
 '''
