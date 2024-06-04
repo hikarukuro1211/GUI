@@ -70,21 +70,6 @@ if uploaded_file is not None:
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
 	rf_image_content_web = requests.get(rf_image_url, stream = True).text
 
-	#raw_text = rf_image_content_web["rawLines"]
-
-	#soup = BeautifulSoup(rf_image_content_web, 'html.parser')
-
-	# Find and extract text content
-	#text = soup.get_text(separator='\n', strip=True)
-	#content = rf_image_content_web.json().get("content", "")
-	#decoded_content = base64.b64decode(content).decode("utf-8")
-	#raw_lines_content = rf_image_content_web["rawLines"]
-
-	st.write(rf_image_content_web)
-	#for line in urllib.request.urlopen(rf_image_url):
-	#	print(line.decode('utf-8')) #utf-8 or iso8859-1 or whatever the page encoding scheme is
-
-'''
 	with open(rf_image_content_web, 'w') as file:
 		rf_image_content = ''
 		line = file.readline()
@@ -98,7 +83,7 @@ if uploaded_file is not None:
 
 
 
-
+'''
 	script = 'rf_image.txt'
 
 	with open(script, 'r') as file:
