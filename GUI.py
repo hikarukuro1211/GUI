@@ -41,7 +41,14 @@ if uploaded_file is not None:
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_path = temp_lzo.name
-					temp_dir = os.path.dirname(temp_lzo_path)
+					temp_dir = os.path.dirname(temp_lzo_path) #get directory of the temp files 
+
+					if 'env' in entry.name:
+						temp_lzo_name_env = temp_lzo_path
+					elif 'rf' in entry.name:
+						temp_lzo_name_rf = temp_lzo_path
+
+
 
 					st.write(temp_lzo_path)
 				# Save the current working directory
@@ -85,8 +92,8 @@ if uploaded_file is not None:
 		cur_dir = temp_dir
 		file_mame = decompressed_path
 		st.write(file_mame)
-		x,y,z = oc.rf_image(file_mame, nout = 3)
-		st.write(x,y,z)
+		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
+		#st.write(x,y,z)
 
 		os.remove(tail)
 		os.remove(decompressed_path)
