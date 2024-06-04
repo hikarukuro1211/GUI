@@ -25,6 +25,7 @@ st.title('Data Visualizer')
 st.sidebar.subheader('Upload a file')
 
 uploaded_file = st.sidebar.file_uploader("Upload a file", type = "tar")
+original_dir = os.getcwd()
 
 if uploaded_file is not None:  
 	#tar = tarfile.open("prac.tar")
@@ -41,7 +42,6 @@ if uploaded_file is not None:
 
 					st.write(temp_lzo_path)
 				# Save the current working directory
-				original_dir = os.getcwd()
 				st.write(original_dir)
 
 				head_tail = os.path.split(temp_lzo_path)
@@ -55,12 +55,15 @@ if uploaded_file is not None:
 				os.system(command_str)							
 				os.system('ls')
 
-
-
 				os.remove(tail)
 				os.remove(decompressed_path)
 
 				rf_image_content_web = requests.get(rf_image_url, stream = True).text
+
+				with open("rf_image.m","w+") as f:
+					f.write(rf_image_content_web)
+					
+				os.system('pwd')
 
 				os.system('ls')
 
@@ -70,8 +73,5 @@ if uploaded_file is not None:
 	#for line in rf_image_content_web:
 	#	rf_image_content += line
 
-	#with open("rf_image.m","w+") as f:
-	#	f.write(rf_image_content_web)
-	#os.system('pwd')
 
 	#os.system('ls')
