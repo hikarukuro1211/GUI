@@ -64,7 +64,7 @@ if uploaded_file is not None:
 
 				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
 				os.system(command_str)							
-			if entry.name.endswith('env.yml'):
+			if entry.name.endswith('rf.yml'):
 				with tempfile.NamedTemporaryFile(delete=False, suffix = '.yml') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_name_env = temp_lzo.name
@@ -135,5 +135,5 @@ if uploaded_file is not None:
 		st.plotly_chart(fig)
 
 		st.cache_data.clear()
-		
+
 		os.chdir(temp_dir)
