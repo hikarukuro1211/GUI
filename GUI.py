@@ -61,44 +61,38 @@ if uploaded_file is not None:
 				#clear up the tempfolder once done 
 				
 
-				rf_image_content_web = requests.get(rf_image_url, stream = True).text
+		rf_image_content_web = requests.get(rf_image_url, stream = True).text
 
-				with open("rf_image.m","w+") as f:
-					f.write(rf_image_content_web)
+		with open("rf_image.m","w+") as f:
+			f.write(rf_image_content_web)
 
-				rdataread_content_web = requests.get(rdataread_url, stream = True).text
+		rdataread_content_web = requests.get(rdataread_url, stream = True).text
 
-				with open("rdataread.m","w+") as f:
-					f.write(rdataread_content_web)
+		with open("rdataread.m","w+") as f:
+			f.write(rdataread_content_web)
 
-				ReadClariusYML_content_web = requests.get(ReadClariusYML_url, stream = True).text
+		ReadClariusYML_content_web = requests.get(ReadClariusYML_url, stream = True).text
 
-				with open("ReadClariusYML.m","w+") as f:
-					f.write(ReadClariusYML_content_web)
+		with open("ReadClariusYML.m","w+") as f:
+			f.write(ReadClariusYML_content_web)
 
-				hilbert_content_web = requests.get(hilbert_url, stream = True).text
+		hilbert_content_web = requests.get(hilbert_url, stream = True).text
 
-				with open("hilbert.m","w+") as f:
-					f.write(hilbert_content_web)
-					
-				#os.system('pwd')
+		with open("hilbert.m","w+") as f:
+			f.write(hilbert_content_web)
+			
+		oc = Oct2Py()
+		cur_dir = temp_dir
+		file_mame = decompressed_path
+		st.write(file_mame)
+		x,y,z = oc.rf_image(file_mame, nout = 3)
+		st.write(x,y,z)
 
-				#os.system('ls')
-
-
-				oc = Oct2Py()
-				cur_dir = temp_dir
-				file_mame = decompressed_path
-				st.write(file_mame)
-				x,y,z = oc.rf_image(file_mame, nout = 3)
-				st.write(x,y,z)
-
-				os.remove(tail)
-				os.remove(decompressed_path)
+		os.remove(tail)
+		os.remove(decompressed_path)
 
 			#plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
 			#plt.show()
-
 
 
 		os.chdir(temp_dir)
