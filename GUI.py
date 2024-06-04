@@ -30,7 +30,7 @@ hilbert_url = 'https://raw.githubusercontent.com/hikarukuro1211/GUI/main/hilbert
 st.title('Data Visualizer')
 st.sidebar.subheader('Upload a file')
 
-uploaded_files = st.sidebar.file_uploader("Upload a file", type = "tar", accept_multiple_files = True)
+uploaded_files = st.sidebar.file_uploader("Upload a file", type = "tar", accept_multiple_files=True)
 original_dir = os.getcwd()
 
 if uploaded_files is not None:  
