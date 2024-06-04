@@ -28,8 +28,11 @@ Last Modified: Feb 2023
 
 % modify path string to point to corresponding .yml file
 
-ymlpath = strrep(filepath, 'raw', 'yml');
+%ymlpath = strrep(filepath, 'raw', 'yml');
 %ymlpath = append(filepath(1),filepath(2),".yml");
+
+ymlpath = filepath + '.env'
+disp(ymlpath)
 
 % open file and read contents into a cell array
 fid = fopen(ymlpath, 'r');
