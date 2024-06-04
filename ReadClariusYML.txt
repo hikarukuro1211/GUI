@@ -32,6 +32,8 @@ Last Modified: Feb 2023
 %ymlpath = append(filepath(1),filepath(2),".yml");
 
 ymlpath = filepath
+disp("ymlpath")
+
 disp(ymlpath)
 
 % open file and read contents into a cell array
