@@ -7,7 +7,8 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
 
     % Open folder
     disp("Inside")
-    disp(filename)
+    disp(rf_filename)
+    disp(env_filename)
 
     fname_rf = fullfile(rf_filename)
     fname_env = fullfile(env_filename)
