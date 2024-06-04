@@ -54,17 +54,11 @@ if uploaded_file is not None:
 				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
 				os.system(command_str)							
 
-				os.system('ls')
-
 				os.remove(tail)
 				os.remove(decompressed_path)
 
-				os.system('ls')
 
-	os.chdir(original_dir)
 	os.system('ls')
-	os.system('pwd')
-
 
 	#create .m files for each matlab function text 
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
@@ -75,6 +69,7 @@ if uploaded_file is not None:
 
 	with open("rf_image.m","w+") as f:
 		f.write(rf_image_content_web)
+	os.system('pwd')
 
 	os.system('ls')
 
