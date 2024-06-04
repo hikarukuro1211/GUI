@@ -2,7 +2,7 @@
 %run the function in command window; run at the directory where all the
 %patient data is stored (e.g. \\tupil\tupil data\#POCUS TRIAL DATA\#POCUS
 %DATA - Shared with TMU)
-function [x,y,BB] = rf_image(pathname, filename)
+function [x,y,BB] = rf_image(filename)
     printf("Inside")
 
     ret = 2
@@ -10,8 +10,8 @@ function [x,y,BB] = rf_image(pathname, filename)
     % Open folder
     disp("Inside")
 
-    fname = fullfile(pathname,filename);
-    fid = fopen(fname, 'r');
+    %fname = fullfile(pathname,filename);
+    fid = fopen(filename, 'r');
     hinfo = fread(fid, 5, 'int32');
     numFrames = hinfo(2);
     
