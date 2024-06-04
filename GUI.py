@@ -58,7 +58,7 @@ if uploaded_file is not None:
 				os.remove(decompressed_path)
 
 
-	os.system('ls')
+				os.system('ls')
 
 	#create .m files for each matlab function text 
 	#rf_image_content_web = json.loads(requests.get(rf_image_url, stream = True).text)
@@ -69,9 +69,9 @@ if uploaded_file is not None:
 
 	with open("rf_image.m","w+") as f:
 		f.write(rf_image_content_web)
-	st.write(os.system('pwd'))
+	os.system('pwd')
 
-	st.write(os.system('ls'))
+	os.system('ls')
 
 
 '''
