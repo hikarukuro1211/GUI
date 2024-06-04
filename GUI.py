@@ -103,13 +103,12 @@ if uploaded_file is not None:
 		#temp_lzo_name_env = temp_lzo_name_env.replace('.yml', '')
 
 		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
-		#st.write(x,y,z)
 
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-			#plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
-			#plt.show()
+		plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
+		plt.show()
 
 
 		os.chdir(temp_dir)
