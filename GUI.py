@@ -64,7 +64,7 @@ if uploaded_file is not None:
 				os.system(command_str)							
 				os.system('ls')
 			if entry.name.endswith('env.yml'):
-				with tempfile.NamedTemporaryFile(delete=False, suffix = '.env') as temp_lzo:
+				with tempfile.NamedTemporaryFile(delete=False, suffix = '.yml') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_name_env = temp_lzo.name
 
@@ -99,7 +99,7 @@ if uploaded_file is not None:
 		st.write(temp_lzo_name_rf)
 		st.write(temp_lzo_name_env)
 
-		temp_lzo_name_rf = temp_lzo_name_rf.replace('.lzo', '.raw')
+		temp_lzo_name_rf = temp_lzo_name_rf.replace('.lzo', '')
 		#temp_lzo_name_env = temp_lzo_name_env.replace('.yml', '')
 
 		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
