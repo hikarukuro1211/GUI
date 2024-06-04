@@ -109,7 +109,6 @@ if uploaded_file is not None:
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-		st.write(type(x_val))
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
