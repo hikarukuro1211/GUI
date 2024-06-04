@@ -37,7 +37,6 @@ yml = textscan(fid, '%s', 'delimiter', '\n', 'whitespace', '');
 fclose(fid);
 
 % remove empty lines
-disp(yml)
 
 yml = deblank(yml{1});
 yml(cellfun('isempty', yml)) = [];
