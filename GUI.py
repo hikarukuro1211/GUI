@@ -116,7 +116,7 @@ if uploaded_file is not None:
 
 		x_min = x.min()
 		x_max = x.max()
-		x_val = np.linspace(x_min, x_max, num = z.shape[0])
+		x_val = np.linspace(x_min, x_max, num = z.shape[1])
 		st.write(x_min)
 
 		st.write(x_max)
@@ -125,17 +125,17 @@ if uploaded_file is not None:
 
 		y_min = y.min()
 		y_max = y.max()
-		y_val = np.linspace(y_min, y_max, num = z.shape[1])
+		y_val = np.linspace(y_min, y_max, num = z.shape[0])
 
 		st.write(y_min)
 
 		st.write(y_max)
 		st.write(y_val)
 
-		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
+		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70, x = x_val, y = y_val)
 		fig.update_layout(coloraxis_showscale=False)
-		fig.update_xaxes(range=[x_min, x_max])
-		fig.update_yaxes(range=[y_min, y_max])
+		#fig.update_xaxes(range=[x_min, x_max])
+		#fig.update_yaxes(range=[y_min, y_max])
 
 		#plt.show()
 		st.plotly_chart(fig)
