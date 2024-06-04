@@ -39,7 +39,7 @@ if uploaded_file is not None:
 				st.write(entry.name)
 				extract = tf.extractfile(entry)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
-					temp_lzo.write(extract.read())
+					temp_lzo.write(extract)
 					temp_lzo_path = temp_lzo.name
 					temp_dir = os.path.dirname(temp_lzo_path)
 
@@ -89,7 +89,7 @@ if uploaded_file is not None:
 
 				oc = Oct2Py()
 				cur_dir = temp_dir
-				file_mame = entry.name.replace('.raw.lzo', '')
+				file_mame = entry.name.replace('.lzo', '')
 				st.write(file_mame)
 				x,y,z = oc.rf_image(file_mame, nout = 3)
 				st.write(x,y,z)
