@@ -6,14 +6,9 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
     printf("Inside")
 
     % Open folder
-    disp("Inside")
-    disp(rf_filename)
-    disp(env_filename)
-
     fname_rf = fullfile(rf_filename)
     fname_env = fullfile(env_filename)
 
-    disp(fname_rf)
 
     fid = fopen(fname_rf, 'r');
 
@@ -37,19 +32,15 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
     FOV = (arc_length * 360) / (2 * pi * 45);
     width = 2 * (depth + delay) * tand(FOV/2);
 
-    disp(depth)
-    disp(width)
 
     
     % display rf data image
     figure; 
     colormap(gray)
-    disp("inside2")
-    disp(numFrames)
+  
     for j = numFrames:numFrames % numFrames is the total number of frames but ROI is only available for frame 'numframes'; by iterating through data(j,:,:), other frames can be accessed 
         RF = squeeze(data(j,:,:));
         BB = 20.*log10(1 + abs(hilbert(RF)));
-        disp("inside3")
         titlename = strrep(rf_filename, '_', '\_');
     
         y = linspace(delay, depth + delay, 10);
