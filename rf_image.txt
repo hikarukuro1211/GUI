@@ -36,6 +36,10 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
     arc_length = (parameters.ProbePitch/1e3)*nlines;
     FOV = (arc_length * 360) / (2 * pi * 45);
     width = 2 * (depth + delay) * tand(FOV/2);
+
+    disp(depth)
+    disp(width)
+
     
     % display rf data image
     figure; 
