@@ -35,7 +35,7 @@ if uploaded_file is not None:
 	bytes_data = uploaded_file.getvalue()
 	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
 		for entry in tf:
-			if entry.name.endswith('.lzo') and "rf" in entry.name:
+			if entry.name.endswith('.lzo'):
 				st.write(entry.name)
 				extract = tf.extractfile(entry)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
