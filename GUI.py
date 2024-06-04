@@ -52,7 +52,6 @@ if uploaded_file is not None:
 
 
 
-					st.write(temp_lzo_path)
 				# Save the current working directory
 				#st.write(original_dir)
 
@@ -65,13 +64,11 @@ if uploaded_file is not None:
 
 				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
 				os.system(command_str)							
-				os.system('ls')
 			if entry.name.endswith('env.yml'):
 				with tempfile.NamedTemporaryFile(delete=False, suffix = '.yml') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_name_env = temp_lzo.name
 
-				st.write(temp_lzo_name_env)
 
 				#clear up the tempfolder once done 
 				
@@ -99,13 +96,15 @@ if uploaded_file is not None:
 		oc = Oct2Py()
 		cur_dir = temp_dir
 		file_name = decompressed_path
-		st.write(temp_lzo_name_rf)
-		st.write(temp_lzo_name_env)
 
 		temp_lzo_name_rf = temp_lzo_name_rf.replace('.lzo', '')
 		#temp_lzo_name_env = temp_lzo_name_env.replace('.yml', '')
 
 		x,y,z = oc.rf_image(temp_lzo_name_rf, temp_lzo_name_env, nout = 3)
+
+		#for filename in os.listdir(os.path.dirname(temp_lzo_path)):
+		#	if filename.is_file():
+		#		os.remove(filename)
 
 		os.remove(tail)
 		os.remove(decompressed_path)
@@ -113,7 +112,7 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		fig = px.imshow(z,color_continuous_scale='gray')#, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = px.imshow(z,color_continuous_scale="gray_r", aspect="auto", width=600, height=600)#, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
 		st.plotly_chart(fig)
 		os.chdir(temp_dir)
