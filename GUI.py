@@ -35,18 +35,17 @@ if uploaded_file is not None:
 	bytes_data = uploaded_file.getvalue()
 	with tarfile.open(fileobj = BytesIO(bytes_data)) as tf:
 		for entry in tf:
+			extract = tf.extractfile(entry)
 			if entry.name.endswith('.lzo'):
 				st.write(entry.name)
-				extract = tf.extractfile(entry)
 				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
 					temp_lzo.write(extract.read())
 					temp_lzo_path = temp_lzo.name
 					temp_dir = os.path.dirname(temp_lzo_path) #get directory of the temp files 
 
-					if 'env' in entry.name:
-						temp_lzo_name_env = temp_lzo_path
-					elif 'rf' in entry.name:
+					if 'rf' in entry.name:
 						temp_lzo_name_rf = temp_lzo_path
+					
 
 
 
@@ -64,6 +63,13 @@ if uploaded_file is not None:
 				command_str = 'lzop -d '+ str(tail) + ' -o ' + str(decompressed_path)
 				os.system(command_str)							
 				os.system('ls')
+			if entry.name.endswith('env.yml'):
+				st.write(entry.name)
+				with tempfile.NamedTemporaryFile(delete=False, suffix='.lzo') as temp_lzo:
+					temp_lzo.write(extract.read())
+					temp_lzo_name_env = temp_lzo.name
+
+				st.write(temp_lzo_name_env)
 
 				#clear up the tempfolder once done 
 				
