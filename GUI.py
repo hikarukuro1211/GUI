@@ -68,8 +68,8 @@ if uploaded_file is not None:
 	#for line in rf_image_content_web:
 	#	rf_image_content += line
 
-	with open("rf_image.m","w+") as f:
-		f.write(rf_image_content_web)
-	os.system('pwd')
+	#with open("rf_image.m","w+") as f:
+	#	f.write(rf_image_content_web)
+	#os.system('pwd')
 
-	os.system('ls')
+	#os.system('ls')
