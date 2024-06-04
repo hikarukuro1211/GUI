@@ -59,8 +59,7 @@ if uploaded_file is not None:
 				os.system('ls')
 
 				#clear up the tempfolder once done 
-				os.remove(tail)
-				os.remove(decompressed_path)
+				
 
 				rf_image_content_web = requests.get(rf_image_url, stream = True).text
 
@@ -93,6 +92,9 @@ if uploaded_file is not None:
 				st.write(file_mame)
 				x,y,z = oc.rf_image(file_mame, nout = 3)
 				st.write(x,y,z)
+
+				os.remove(tail)
+				os.remove(decompressed_path)
 
 			#plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
 			#plt.show()
