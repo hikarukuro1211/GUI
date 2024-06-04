@@ -117,20 +117,12 @@ if uploaded_file is not None:
 		x_min = x.min()
 		x_max = x.max()
 		x_val = np.linspace(x_min, x_max, num = z.shape[1])
-		st.write(x_min)
-
-		st.write(x_max)
-		st.write(x_val)
-
 
 		y_min = y.min()
 		y_max = y.max()
 		y_val = np.linspace(y_min, y_max, num = z.shape[0])
 
-		st.write(y_min)
-
-		st.write(y_max)
-		st.write(y_val)
+		
 
 		label_dict = {'x': 'width (cm)', 'y': 'depth (cm)'}
 
@@ -141,4 +133,7 @@ if uploaded_file is not None:
 
 		#plt.show()
 		st.plotly_chart(fig)
+
+		st.cache_data.clear()
+		
 		os.chdir(temp_dir)
