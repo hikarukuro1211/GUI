@@ -112,22 +112,13 @@ if uploaded_file is not None:
 		#fig = go.Figure(data=go.Heatmap(z))
 		#fig.layout.height = 500
 		#fig.layout.width = 500
-		st.write(type(x))
-		s = x.max()
-		st.write(s)
-
-
-		x_min = min(list(x))
-		st.write(x_min)
-		x_max = max(x)
 		
-		#st.write(x_max)
 
-		y_min = min(y)
-		#st.write(y_min)
-
-		y_max = max(y)
-		#st.write(y_max)
+		x_min = x.min()
+		x_max = x.max()
+		
+		y_min = y.min()
+		y_max = y.max()
 
 		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
 		fig.update_layout(coloraxis_showscale=False)
