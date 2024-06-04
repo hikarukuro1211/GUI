@@ -90,7 +90,7 @@ if uploaded_file is not None:
 				oc = Oct2Py()
 				cur_dir = temp_dir
 				file_mame = entry.name.replace('.lzo', '')
-				x,y,z = oc.rf_image('', file_mame, nout = 3)
+				x,y,z = oc.rf_image(file_mame, nout = 3)
 				st.write(x,y,z)
 
 			#plt.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
