@@ -110,7 +110,7 @@ if uploaded_file is not None:
 		os.remove(tail)
 		os.remove(decompressed_path)
 
-		fig = px.imshow(z, extent=[15, 70, 15, 70], cmap = 'gray')
+		fig = px.imshow(z)#, extent=[15, 70, 15, 70], cmap = 'gray')
 		#plt.show()
 		st.plotly_chart(fig)
 		os.chdir(temp_dir)
