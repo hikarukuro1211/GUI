@@ -128,8 +128,8 @@ if uploaded_file is not None:
 
 		fig = px.imshow(z, color_continuous_scale="gray_r", aspect="auto", width=600, height=600, zmin=15, zmax=70)
 		fig.update_layout(coloraxis_showscale=False)
-		fig.update_xaxes(range=[x_min, x_max], autorange = False)
-		fig.update_yaxes(range=[y_min, y_max], autorange = False)
+		fig.update_xaxes(range=[x_min, x_max])
+		fig.update_yaxes(range=[y_min, y_max])
 
 		#plt.show()
 		st.plotly_chart(fig)
