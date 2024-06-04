@@ -69,9 +69,9 @@ if uploaded_file is not None:
 
 	with open("rf_image.m","w+") as f:
 		f.write(rf_image_content_web)
-	os.system('pwd')
+	st.write(os.system('pwd'))
 
-	os.system('ls')
+	st.write(os.system('ls'))
 
 
 '''
