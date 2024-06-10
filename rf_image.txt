@@ -2,20 +2,19 @@
 %run the function in command window; run at the directory where all the
 %patient data is stored (e.g. \\tupil\tupil data\#POCUS TRIAL DATA\#POCUS
 %DATA - Shared with TMU)
-function [x,y,BB] = rf_image(rf_filename, env_filename)
+function [x,y,BB] = rf_image(rf_filename)
     printf("Inside")
 
     % Open folder
-    fname_rf = fullfile(rf_filename);
-    fname_env = fullfile(env_filename);
+    fname = fullfile(rf_filename);
 
 
-    fid = fopen(fname_rf, 'r');
+    fid = fopen(fname, 'r');
 
     hinfo = fread(fid, 5, 'int32');
     numFrames = hinfo(2);
     
-    [data, header] = rdataread(fname_rf, numFrames);
+    [data, header] = rdataread(fname, numFrames);
     [nframes, nsamples, nlines] = size(data);
     
     if (numFrames > header.frames)
@@ -23,7 +22,7 @@ function [x,y,BB] = rf_image(rf_filename, env_filename)
     end
     
     % depth
-    parameters = ReadClariusYML(fname_env, header.lines);
+    parameters = ReadClariusYML(fname, header.lines);
     delay = (153850/2)*(parameters.DelaySamples/(parameters.SamplingRate*1e6));
     depth = (153850/2)*(nsamples/(parameters.SamplingRate*1e6));
     
