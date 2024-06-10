@@ -39,8 +39,15 @@ function [x,y,BB] = rf_image(rf_filename)
   
     for j = numFrames:numFrames % numFrames is the total number of frames but ROI is only available for frame 'numframes'; by iterating through data(j,:,:), other frames can be accessed 
         RF = squeeze(data(j,:,:));
-        BB = 20.*log10(1 + abs(hilbert(RF)));
+        %BB = 20.*log10(1 + abs(hilbert(RF)));
         titlename = strrep(rf_filename, '_', '\_');
+        
+        SA = abs(hilbert(RF));
+        MV = max(max(SA));
+
+        BB = 20.*log10(SA./MV);
+        BB(BB == -Inf) = NaN;
+
     
         y = linspace(delay, depth + delay, 10);
         x = linspace(0, width, 10);
