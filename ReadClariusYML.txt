@@ -30,7 +30,7 @@ Last Modified: Feb 2023
 
 %argument string will have the form file_name.raw 
 
-ymlpath = strrep(filepath, 'raw', 'yml');
+ymlpath = strrep(filepath, "raw", "yml");
 display(ymlpath)
 %ymlpath = append(filepath(1),filepath(2),".yml");
 
